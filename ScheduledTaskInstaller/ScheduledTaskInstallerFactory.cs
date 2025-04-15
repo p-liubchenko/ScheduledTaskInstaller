@@ -43,7 +43,7 @@ public static class ScheduledTaskInstallerFactory
                 return new NoOpScheduledTaskInstaller("Docker without cron");
             }
             if (uname.Contains("Android", StringComparison.OrdinalIgnoreCase))
-                return new NoOpScheduledTaskInstaller();
+                return new NoOpScheduledTaskInstaller("Android does not support task scheduling");
 
             if (IsCommandAvailable("crontab"))
                 return new CronScheduledTaskInstaller();
